@@ -1,11 +1,16 @@
 environments:
-- name: acceptance
-- name: production
+  - name: acceptance
+    cluster:
+      maxSize: 2
+  - name: production
+    cluster:
+      maxSize: 5
+
 service:
-  port: 80
   healthEndpoint: /
+  port: 80
   pathPatterns:
-  - /*
+    - /*
   pipeline:
     source:
       provider: GitHub
